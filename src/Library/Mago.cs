@@ -32,6 +32,6 @@ public class Mago: IPersonaje
 
     public void LeerHechizo(string hechizo)
     {
-        LibroHechizos.AgregarHechizo.Add(hechizo);
+        
     }
 }
