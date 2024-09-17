@@ -22,16 +22,26 @@ public class Mago: IPersonaje
 
     public void Atacar(IPersonaje enemigo)
     {
-        enemigo.NivelVida -= NivelFuerza;
+        if (enemigo.NivelResistencia > NivelFuerza)
+        {
+            enemigo.NivelVida -= enemigo.NivelResistencia - NivelFuerza;
+        }
+        else
+        {
+            enemigo.NivelVida += enemigo.NivelResistencia - NivelFuerza;
+        }
+        Console.WriteLine($"{TipoPersonaje} ataca a {enemigo.TipoPersonaje}");
     }
-
-    public void DefenderseDe(IPersonaje personaje)
-    {
-        
-    }
-
+    
     public void LeerHechizo(string hechizo)
     {
-        
+        if (!LibroHechizos.Hechizos.Contains(hechizo))
+        {
+            LibroHechizos.Hechizos.Add(hechizo);   
+        }
+        else
+        {
+            Console.WriteLine($"El hechizo {hechizo} ya está en el libro");
+        }
     }
 }

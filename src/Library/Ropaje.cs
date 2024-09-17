@@ -1,19 +1,19 @@
 namespace Library;
 
-public class Ropaje: IElementos
-{
-    private IElementos _elementosImplementation;
+public class Ropaje
+{ 
     public string NombreElemento { get; }
     public int NivelDefensa { get; set; }
 
     public Ropaje(string nombreElemento, int nivelDefensa)
     {
-        this.NombreElemento = nombreElemento;
-        this.NivelDefensa = nivelDefensa;
+        NombreElemento = nombreElemento;
+        NivelDefensa = nivelDefensa;
     }
 
-    public void UsarElemento()
+    public int UsarElemento(IPersonaje personaje)
     {
-        
+        Console.WriteLine($"{personaje.TipoPersonaje} aumentó su defensa con {NombreElemento}");
+        return personaje.NivelResistencia += NivelDefensa;
     }
 }

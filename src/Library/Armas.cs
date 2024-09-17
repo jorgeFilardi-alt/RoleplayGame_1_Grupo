@@ -1,18 +1,18 @@
 namespace Library;
 
-public class Armas: IElementos
+public class Armas
 { 
     public string NombreElemento { get; }
     public int NivelAtaque { get; set; }
 
     public Armas(string nombreElemento, int nivelAtaque)
     {
-        this.NombreElemento = nombreElemento;
-        this.NivelAtaque = nivelAtaque;
+        NombreElemento = nombreElemento;
+        NivelAtaque = nivelAtaque;
     }
 
-    public void UsarElemento()
+    public int UsarElemento(IPersonaje personaje)
     {
-        
+        return personaje.NivelVida -= NivelAtaque;
     }
 }
