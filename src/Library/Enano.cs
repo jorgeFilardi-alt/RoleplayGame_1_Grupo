@@ -22,20 +22,22 @@ public class Enano: IPersonaje
 
     public void Atacar(IPersonaje enemigo)
     {
-        if (enemigo.NivelResistencia > NivelFuerza)
+        int dano = NivelFuerza;
+        if (enemigo.NivelResistencia > dano)
         {
-            enemigo.NivelVida -= (enemigo.NivelResistencia - NivelFuerza);
+            enemigo.NivelVida -= (enemigo.NivelResistencia - dano);
         }
         else
         {
-            enemigo.NivelVida += (enemigo.NivelResistencia - NivelFuerza);
+            enemigo.NivelVida -= dano;
         }
         Console.WriteLine($"{TipoPersonaje} ataca a {enemigo.TipoPersonaje}");
     }
     
     public int AyudarA(IPersonaje enano)
     {
+        enano.NivelVida += 1000;
         Console.WriteLine($"{TipoPersonaje} ayudó a {enano.TipoPersonaje}");
-        return enano.NivelVida = 1000;
+        return enano.NivelVida;
     }
 }

@@ -22,13 +22,14 @@ public class Mago: IPersonaje
 
     public void Atacar(IPersonaje enemigo)
     {
-        if (enemigo.NivelResistencia > NivelFuerza)
+        int dano = NivelFuerza + NivelMagia;
+        if (enemigo.NivelResistencia > dano)
         {
-            enemigo.NivelVida -= (enemigo.NivelResistencia - NivelFuerza);
+            enemigo.NivelVida -= (enemigo.NivelResistencia - dano);
         }
         else
         {
-            enemigo.NivelVida += (enemigo.NivelResistencia - NivelFuerza);
+            enemigo.NivelVida -= dano;
         }
         Console.WriteLine($"{TipoPersonaje} ataca a {enemigo.TipoPersonaje}");
     }
