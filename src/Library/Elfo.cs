@@ -25,17 +25,17 @@ public class Elfo: IPersonaje
     {
         if (enemigo.NivelResistencia > NivelFuerza)
         {
-            enemigo.NivelVida -= enemigo.NivelResistencia - NivelFuerza;
+            enemigo.NivelVida -= (enemigo.NivelResistencia - NivelFuerza);
         }
         else
         {
-            enemigo.NivelVida += enemigo.NivelResistencia - NivelFuerza;
+            enemigo.NivelVida += (enemigo.NivelResistencia - NivelFuerza);
         }
         Console.WriteLine($"{TipoPersonaje} ataca a {enemigo.TipoPersonaje}");
     }
     
     public int AyudarA(IPersonaje amigo)
     {
-        return amigo.NivelVida = 1000;
+        return amigo.NivelVida += 1000;
     }
 }

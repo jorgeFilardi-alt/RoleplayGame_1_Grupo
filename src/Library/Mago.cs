@@ -24,11 +24,11 @@ public class Mago: IPersonaje
     {
         if (enemigo.NivelResistencia > NivelFuerza)
         {
-            enemigo.NivelVida -= enemigo.NivelResistencia - NivelFuerza;
+            enemigo.NivelVida -= (enemigo.NivelResistencia - NivelFuerza);
         }
         else
         {
-            enemigo.NivelVida += enemigo.NivelResistencia - NivelFuerza;
+            enemigo.NivelVida += (enemigo.NivelResistencia - NivelFuerza);
         }
         Console.WriteLine($"{TipoPersonaje} ataca a {enemigo.TipoPersonaje}");
     }
