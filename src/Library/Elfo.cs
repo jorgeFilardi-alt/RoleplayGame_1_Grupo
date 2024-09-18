@@ -1,5 +1,8 @@
 namespace Library;
-
+/*
+ * Clase Elfo que implementa interface IPersonaje, con su estado y métodos correspondientes.
+ * Además, posee características mágicas como nivelMagia, y funciones como AyudarA sus propios compañeros de la misma clase.
+ */
 public class Elfo: IPersonaje
 {
     public string TipoPersonaje { get;  }
@@ -23,19 +26,22 @@ public class Elfo: IPersonaje
 
     public void Atacar(IPersonaje enemigo)
     {
-        if (enemigo.NivelResistencia > NivelFuerza)
+        int dano = NivelFuerza;
+        if (enemigo.NivelResistencia > dano)
         {
-            enemigo.NivelVida -= (enemigo.NivelResistencia - NivelFuerza);
+            enemigo.NivelVida -= (enemigo.NivelResistencia - dano);
         }
         else
         {
-            enemigo.NivelVida += (enemigo.NivelResistencia - NivelFuerza);
+            enemigo.NivelVida -= dano;
         }
         Console.WriteLine($"{TipoPersonaje} ataca a {enemigo.TipoPersonaje}");
     }
     
     public int AyudarA(IPersonaje amigo)
     {
-        return amigo.NivelVida += 1000;
+        amigo.NivelVida += 1000; //Al ayudar a su compañero le suma ciertos puntos de vida.
+        Console.WriteLine($"{TipoPersonaje} ayudó a {amigo.TipoPersonaje}");
+        return amigo.NivelVida;
     }
 }

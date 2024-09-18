@@ -19,10 +19,6 @@ public class LibroHechizos
             Console.WriteLine($"El hechizo {hechizo} ha sido lanzado");
             personaje.NivelVida -= personaje.NivelResistencia;
         }
-        else
-        {
-            Console.WriteLine($"El hechizo {hechizo} no está en el libro");
-        }
     }
 
     public void AgregarHechizo(string hechizo)
