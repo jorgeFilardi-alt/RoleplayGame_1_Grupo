@@ -30,7 +30,7 @@ public class Program
         LibroHechizos libro = new LibroHechizos("Bastón Mágico");
         libro.AgregarHechizo("Bastón Mágico");
         libro.UsarElemento("Bastón mágico", enano);
-        Console.WriteLine($"Se ha utilizado {libro.NombreElemento} en {enano.TipoPersonaje}");
+        Console.WriteLine($"Se ha utilizado {libro.NombreElemento}");
         Console.WriteLine($"Nivel de vida de {enano.TipoPersonaje}: {enano.NivelVida}");;
     }
 }
